@@ -1,26 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light mode - Addis Hunt Design Tokens */
+  --bg: #FAF9F7;
+  --surface-50: #F2F0EC;
+  --surface-100: #E8E5DF;
+  --border: #DEDAD2;
+  --ink-900: #1A1815;
+  --ink-700: #3D3A34;
+  --ink-500: #6B6760;
+  --ink-300: #A19C92;
+}
+
+.dark {
+  /* Dark mode - Addis Hunt Design Tokens */
+  --bg: #17150F;
+  --surface-50: #211E17;
+  --surface-100: #2B271E;
+  --border: #3A362C;
+  --ink-900: #F5F2EC;
+  --ink-700: #DBD6CC;
+  --ink-500: #A8A296;
+  --ink-300: #6B6760;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface-50: var(--surface-50);
+  --color-surface-100: var(--surface-100);
+  --color-border: var(--border);
+  --color-ink-900: var(--ink-900);
+  --color-ink-700: var(--ink-700);
+  --color-ink-500: var(--ink-500);
+  --color-ink-300: var(--ink-300);
+
+  --font-display: "Hanken Grotesk", sans-serif;
+  --font-body: "Hanken Grotesk", sans-serif;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --container-max: 1100px;
+  --gutter: 16px;
+  --margin-mobile: 12px;
+  --margin-desktop: 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined', sans-serif;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Typography utilities */
+.text-display-lg {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-display-lg-mobile {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.text-title-lg {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.text-body-md {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.text-body-sm {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.text-label-lg {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.text-label-sm {
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+}
+
+/* Focus styles */
+.focus-ring:focus {
+  outline: none;
+  ring: 2px;
+  ring-offset: 2px;
+  ring-color: var(--ink-900);
+}
+
+/* Transitions */
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+.transition-normal {
+  transition: all 0.2s ease;
+}
+
+/* Upvote button styles */
+.upvote-btn {
+  transition: all 0.2s ease;
+}
+
+.upvote-btn:hover {
+  background-color: var(--surface-100);
+}
+
+.upvote-btn.voted {
+  background-color: var(--ink-900) !important;
+  color: var(--bg) !important;
+  border-color: var(--ink-900) !important;
+}
+
+.upvote-btn.voted .material-symbols-outlined {
+  color: var(--bg) !important;
+}
+
+.product-card {
+  transition: background-color 0.2s ease;
+}
+
+.product-card:hover {
+  background-color: var(--surface-50);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--ink-900);
+  color: var(--bg);
 }
